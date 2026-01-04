@@ -94,3 +94,7 @@ let number3 = Int(str2)
  */
 typealias Name = String
 var myName: Name = "김동현"
+
+typealias Something = (Int) -> String
+func someFunction(completion: (Int) -> String) {}
+func someFunction2(completion: Something) {}
