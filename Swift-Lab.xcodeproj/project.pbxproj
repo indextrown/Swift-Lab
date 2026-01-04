@@ -29,6 +29,12 @@
 			path = "Swift-Lab";
 			sourceTree = "<group>";
 		};
+		DF796B472F0A4BA2000696A8 /* 01. 변수와 상수 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			name = "01. 변수와 상수";
+			path = "01. 변수와 상수";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 		DF1A84CC2F0A47620085F7E6 = {
 			isa = PBXGroup;
 			children = (
+				DF796B472F0A4BA2000696A8 /* 01. 변수와 상수 */,
 				DF1A84E02F0A47DC0085F7E6 /* .gitignore */,
 				DF1A84D72F0A47620085F7E6 /* Swift-Lab */,
 				DF1A84D62F0A47620085F7E6 /* Products */,
@@ -76,6 +83,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DF1A84D72F0A47620085F7E6 /* Swift-Lab */,
+				DF796B472F0A4BA2000696A8 /* 01. 변수와 상수 */,
 			);
 			name = "Swift-Lab";
 			packageProductDependencies = (
