@@ -1,0 +1,13 @@
+### Xcode ###
+# Ignore Swift-Lab folder
+Swift-Lab/
+
+# 기타 무시할 항목들
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.xcschememanagement.plist
+GoogleService-Info.plist
+
+*.xcconfig
+Config.xcconfig
