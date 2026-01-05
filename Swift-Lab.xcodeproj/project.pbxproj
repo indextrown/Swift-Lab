@@ -23,6 +23,16 @@
 		DF1A84E02F0A47DC0085F7E6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DF6C698E2F0B925100724ED5 /* Exceptions for "Swift-Lab" folder in "Swift-Lab" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				main.swift,
+			);
+			target = DF1A84D42F0A47620085F7E6 /* Swift-Lab */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DF028E072F0AB573002B7BF9 /* 02. 기본 연산자 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -36,8 +46,17 @@
 			path = "03. 조건문";
 			sourceTree = "<group>";
 		};
+		DF028E0C2F0ADD93002B7BF9 /* 데이터구조 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			name = "데이터구조";
+			path = "데이터구조";
+			sourceTree = "<group>";
+		};
 		DF1A84D72F0A47620085F7E6 /* Swift-Lab */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DF6C698E2F0B925100724ED5 /* Exceptions for "Swift-Lab" folder in "Swift-Lab" target */,
+			);
 			path = "Swift-Lab";
 			sourceTree = "<group>";
 		};
@@ -64,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				DF1A84E02F0A47DC0085F7E6 /* .gitignore */,
+				DF028E0C2F0ADD93002B7BF9 /* 데이터구조 */,
 				DF796B472F0A4BA2000696A8 /* 01. 변수와 상수 */,
 				DF028E072F0AB573002B7BF9 /* 02. 기본 연산자 */,
 				DF028E092F0ABC59002B7BF9 /* 03. 조건문 */,
@@ -98,6 +118,7 @@
 			fileSystemSynchronizedGroups = (
 				DF028E072F0AB573002B7BF9 /* 02. 기본 연산자 */,
 				DF028E092F0ABC59002B7BF9 /* 03. 조건문 */,
+				DF028E0C2F0ADD93002B7BF9 /* 데이터구조 */,
 				DF1A84D72F0A47620085F7E6 /* Swift-Lab */,
 				DF796B472F0A4BA2000696A8 /* 01. 변수와 상수 */,
 			);
