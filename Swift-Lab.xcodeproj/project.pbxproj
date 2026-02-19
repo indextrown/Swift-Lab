@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DF022DC32F47523E007F6C55 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DF022DC22F47523E007F6C55 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DF022DB32F4751E0007F6C55 /* Swift-Lab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Lab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF022DC22F47523E007F6C55 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		DF022DAA2F4751E0007F6C55 = {
 			isa = PBXGroup;
 			children = (
+				DF022DC22F47523E007F6C55 /* .gitignore */,
 				DF022DB52F4751E0007F6C55 /* Swift-Lab */,
 				DF022DB42F4751E0007F6C55 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF022DC32F47523E007F6C55 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
