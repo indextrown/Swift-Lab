@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict/>
+	</array>
+    
+    <!-- 🔥 카메라 권한 -->
+    <key>NSCameraUsageDescription</key>
+    <string>카메라를 사용하여 사진을 촬영합니다.</string>
+
+    <!-- 🔥 사진 라이브러리 권한 -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>사진 앨범에서 이미지를 선택합니다.</string>
+</dict>
+</plist>

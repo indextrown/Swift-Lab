@@ -27,10 +27,24 @@ struct MenuItem: Hashable {
 // 섹션
 enum MenuSection: String, CaseIterable {
     case uitableview = "테이블뷰"
+    case imagePicker = "이미지 피커"
+    case textField = "텍스트필드"
 }
 
 let menuData: [MenuSection: [MenuItem]] = [
-    MenuSection.uitableview: [
-        MenuItem(title: "테이블뷰", viewControllerType: UITableVC.self)
+    .uitableview: [
+        MenuItem(title: "테이블뷰", viewControllerType: UITableVC.self),
+        MenuItem(title: "테이블뷰2", viewControllerType: UITableVC2.self)
+    ],
+    
+    .imagePicker: [
+        MenuItem(title: "이미지 피커", viewControllerType: ImagePickerVC.self),
+        MenuItem(title: "Rx 이미지 피커", viewControllerType: RxImagePickerVC.self)
+    ],
+    
+    .textField: [
+        MenuItem(title: "텍스트필드", viewControllerType: TextFieldVC.self),
+        MenuItem(title: "Rx텍스트필드", viewControllerType: RxTextFieldVC.self),
+        MenuItem(title: "Delegate 커스텀", viewControllerType: CustomDelegateVC.self)
     ]
 ]

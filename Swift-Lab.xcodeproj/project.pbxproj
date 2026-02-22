@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DF022DC32F47523E007F6C55 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DF022DC22F47523E007F6C55 /* .gitignore */; };
+		DF3130A22F4A0F600091DE91 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A12F4A0F600091DE91 /* RxCocoa */; };
+		DF3130A42F4A0F600091DE91 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A32F4A0F600091DE91 /* RxRelay */; };
+		DF3130A62F4A0F600091DE91 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A52F4A0F600091DE91 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -15,9 +18,22 @@
 		DF022DC22F47523E007F6C55 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DF3130AD2F4A1A2E0091DE91 /* Exceptions for "Swift-Lab" folder in "Swift-Lab" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DF022DB22F4751E0007F6C55 /* Swift-Lab */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DF022DB52F4751E0007F6C55 /* Swift-Lab */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DF3130AD2F4A1A2E0091DE91 /* Exceptions for "Swift-Lab" folder in "Swift-Lab" target */,
+			);
 			path = "Swift-Lab";
 			sourceTree = "<group>";
 		};
@@ -28,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF3130A62F4A0F600091DE91 /* RxSwift in Frameworks */,
+				DF3130A42F4A0F600091DE91 /* RxRelay in Frameworks */,
+				DF3130A22F4A0F600091DE91 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +90,9 @@
 			);
 			name = "Swift-Lab";
 			packageProductDependencies = (
+				DF3130A12F4A0F600091DE91 /* RxCocoa */,
+				DF3130A32F4A0F600091DE91 /* RxRelay */,
+				DF3130A52F4A0F600091DE91 /* RxSwift */,
 			);
 			productName = "Swift-Lab";
 			productReference = DF022DB32F4751E0007F6C55 /* Swift-Lab.app */;
@@ -100,6 +122,9 @@
 			);
 			mainGroup = DF022DAA2F4751E0007F6C55;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF022DB42F4751E0007F6C55 /* Products */;
 			projectDirPath = "";
@@ -263,6 +288,7 @@
 				DEVELOPMENT_TEAM = LGX4B4WC66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift-Lab/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -291,6 +317,7 @@
 				DEVELOPMENT_TEAM = LGX4B4WC66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift-Lab/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +358,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF3130A12F4A0F600091DE91 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DF3130A32F4A0F600091DE91 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DF3130A52F4A0F600091DE91 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF022DAB2F4751E0007F6C55 /* Project object */;
 }
