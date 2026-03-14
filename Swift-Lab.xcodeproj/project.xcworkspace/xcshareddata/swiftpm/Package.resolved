@@ -1,6 +1,24 @@
 {
-  "originHash" : "d9f13a30b16af1eebc2641597f741943833bff0e550bd37d6e3fcc53043bd036",
+  "originHash" : "eb83ef09f3f0866e017f09828dcb25860e1ee864101bc7d362cb2d58e32e66d6",
   "pins" : [
+    {
+      "identity" : "differencekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ra1028/DifferenceKit",
+      "state" : {
+        "revision" : "073b9671ce2b9b5b96398611427a1f929927e428",
+        "version" : "1.3.0"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher",
+      "state" : {
+        "revision" : "e227df15448d2ad1a5d4e4c49722a71c68f9058a",
+        "version" : "8.7.0"
+      }
+    },
     {
       "identity" : "rxdatasources",
       "kind" : "remoteSourceControl",

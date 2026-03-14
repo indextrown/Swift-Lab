@@ -15,6 +15,15 @@ struct SwiftUIListView: View {
                     NavigationLink("리스트") {
                         ListView()
                     }
+                    
+                    NavigationLink("토스 SwiftUI") {
+                        AnimationView()
+                    }
+                    
+                    
+                    NavigationLink("토스 UIKit") {
+                        AnimationVC.toSwiftUI()
+                    }
                 }
             }
         }

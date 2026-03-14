@@ -30,7 +30,8 @@ enum MenuSection: String, CaseIterable {
     case collctionView = "콜렉션뷰"
     case imagePicker = "이미지 피커"
     case textField = "텍스트필드"
-    
+    case performanceTest = "성능 테스트"
+    case adapter = "커스텀 어댑터"
 }
 
 let menuData: [MenuSection: [MenuItem]] = [
@@ -41,9 +42,11 @@ let menuData: [MenuSection: [MenuItem]] = [
     
     .collctionView: [
         MenuItem(title: "콜렉션뷰", viewControllerType: UICollectionVC.self),
+        MenuItem(title: "콜렉션뷰(섹션)", viewControllerType: UICollectionDataSourceVC.self),
         MenuItem(title: "Rx 콜렉션뷰", viewControllerType: RxUICollectionVC.self),
-        MenuItem(title: "Rx 콜렉션뷰(섹션)", viewControllerType: RxUICollectionDataSourceVC.self),
-        MenuItem(title: "Rx 콜렉션뷰(섹션 + 애니메이션)", viewControllerType: RxUICollectionAnimatedDataSourceVC.self),
+        MenuItem(title: "Rx 콜렉션뷰(섹션)", viewControllerType: RxUICollectionNoRxDataSourceVC.self),
+        MenuItem(title: "Rx 콜렉션뷰(섹션 with RxDataSource)", viewControllerType: RxUICollectionDataSourceVC.self),
+        MenuItem(title: "Rx 콜렉션뷰(섹션 + 애니메이션 with RxDataSource)", viewControllerType: RxUICollectionAnimatedDataSourceVC.self),
         MenuItem(title: "DiffableDataSource", viewControllerType: DiffableVC.self)
     ],
 
@@ -56,5 +59,17 @@ let menuData: [MenuSection: [MenuItem]] = [
         MenuItem(title: "텍스트필드", viewControllerType: TextFieldVC.self),
         MenuItem(title: "Rx텍스트필드", viewControllerType: RxTextFieldVC.self),
         MenuItem(title: "Delegate 커스텀", viewControllerType: CustomDelegateVC.self)
+    ],
+    
+    .performanceTest: [
+        MenuItem(title: "UICollectionView", viewControllerType: UICollectionViewPerformanceVC.self),
+        MenuItem(title: "RxUICollectionView + KingFisher", viewControllerType: RxUICollectionViewPerformanceVC.self),
+    ],
+    
+    .adapter: [
+        MenuItem(title: "ProductListViewController", viewControllerType: ProductListViewController.self),
     ]
+        
 ]
+
+
