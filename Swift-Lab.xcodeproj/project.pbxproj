@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		DF022DC32F47523E007F6C55 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DF022DC22F47523E007F6C55 /* .gitignore */; };
-		DF3130A22F4A0F600091DE91 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A12F4A0F600091DE91 /* RxCocoa */; };
 		DF3130A42F4A0F600091DE91 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A32F4A0F600091DE91 /* RxRelay */; };
 		DF3130A62F4A0F600091DE91 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF3130A52F4A0F600091DE91 /* RxSwift */; };
 		DF46806A2F4B4DE500EA65F2 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = DF4680692F4B4DE500EA65F2 /* Differentiator */; };
 		DF46806C2F4B4DE500EA65F2 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = DF46806B2F4B4DE500EA65F2 /* RxDataSources */; };
 		DF78549C2F5D5D5000372852 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF78549B2F5D5D5000372852 /* DifferenceKit */; };
 		DF9BCFE02F55E4EE00830E99 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DF9BCFDF2F55E4EE00830E99 /* Kingfisher */; };
+		DFB890A02F687F9A002130CD /* AutoCodable in Frameworks */ = {isa = PBXBuildFile; productRef = DFB8909F2F687F9A002130CD /* AutoCodable */; };
+		DFFBD8512F8C0B8B00D6673B /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = DFFBD8502F8C0B8B00D6673B /* ReactorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,11 @@
 			path = "Swift-Lab";
 			sourceTree = "<group>";
 		};
+		DF92BED52F925E3F0092C609 /* CLI-Lab */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "CLI-Lab";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +58,10 @@
 				DF46806A2F4B4DE500EA65F2 /* Differentiator in Frameworks */,
 				DF3130A62F4A0F600091DE91 /* RxSwift in Frameworks */,
 				DF78549C2F5D5D5000372852 /* DifferenceKit in Frameworks */,
+				DFFBD8512F8C0B8B00D6673B /* ReactorKit in Frameworks */,
 				DF3130A42F4A0F600091DE91 /* RxRelay in Frameworks */,
 				DF46806C2F4B4DE500EA65F2 /* RxDataSources in Frameworks */,
-				DF3130A22F4A0F600091DE91 /* RxCocoa in Frameworks */,
+				DFB890A02F687F9A002130CD /* AutoCodable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +74,7 @@
 				DF022DC22F47523E007F6C55 /* .gitignore */,
 				DF022DB52F4751E0007F6C55 /* Swift-Lab */,
 				DF022DB42F4751E0007F6C55 /* Products */,
+				DF92BED52F925E3F0092C609 /* CLI-Lab */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,16 +103,18 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DF022DB52F4751E0007F6C55 /* Swift-Lab */,
+				DF92BED52F925E3F0092C609 /* CLI-Lab */,
 			);
 			name = "Swift-Lab";
 			packageProductDependencies = (
-				DF3130A12F4A0F600091DE91 /* RxCocoa */,
 				DF3130A32F4A0F600091DE91 /* RxRelay */,
 				DF3130A52F4A0F600091DE91 /* RxSwift */,
 				DF4680692F4B4DE500EA65F2 /* Differentiator */,
 				DF46806B2F4B4DE500EA65F2 /* RxDataSources */,
 				DF9BCFDF2F55E4EE00830E99 /* Kingfisher */,
 				DF78549B2F5D5D5000372852 /* DifferenceKit */,
+				DFB8909F2F687F9A002130CD /* AutoCodable */,
+				DFFBD8502F8C0B8B00D6673B /* ReactorKit */,
 			);
 			productName = "Swift-Lab";
 			productReference = DF022DB32F4751E0007F6C55 /* Swift-Lab.app */;
@@ -139,6 +149,8 @@
 				DF4680682F4B4DE500EA65F2 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				DF9BCFDE2F55E4EE00830E99 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DF78549A2F5D5D5000372852 /* XCRemoteSwiftPackageReference "DifferenceKit" */,
+				DFB8909E2F687F9A002130CD /* XCRemoteSwiftPackageReference "AutoCodable" */,
+				DFFBD84F2F8C0B8B00D6673B /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF022DB42F4751E0007F6C55 /* Products */;
@@ -407,14 +419,25 @@
 				minimumVersion = 8.7.0;
 			};
 		};
+		DFB8909E2F687F9A002130CD /* XCRemoteSwiftPackageReference "AutoCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/indextrown/AutoCodable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+		DFFBD84F2F8C0B8B00D6673B /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DF3130A12F4A0F600091DE91 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
 		DF3130A32F4A0F600091DE91 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DF3130A02F4A0F600091DE91 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -444,6 +467,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF9BCFDE2F55E4EE00830E99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		DFB8909F2F687F9A002130CD /* AutoCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFB8909E2F687F9A002130CD /* XCRemoteSwiftPackageReference "AutoCodable" */;
+			productName = AutoCodable;
+		};
+		DFFBD8502F8C0B8B00D6673B /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFFBD84F2F8C0B8B00D6673B /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -44,5 +44,32 @@ extension UIViewController {
 }
 
 
+extension UIViewController {
+    struct ReactorVCWrapper: UIViewControllerRepresentable {
+        let makeViewController: () -> UIViewController
+        let withNavigation: Bool
+        
+        func makeUIViewController(context: Context) -> UIViewController {
+            let rootVC = makeViewController()
+            
+            return withNavigation
+                ? UINavigationController(rootViewController: rootVC)
+                : rootVC
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
+    }
+    
+    static func toSwiftUI(
+        withNavigation: Bool = true,
+        makeViewController: @escaping () -> UIViewController
+    ) -> some View {
+        ReactorVCWrapper(
+            makeViewController: makeViewController,
+            withNavigation: withNavigation
+        )
+    }
+}
+
 
 

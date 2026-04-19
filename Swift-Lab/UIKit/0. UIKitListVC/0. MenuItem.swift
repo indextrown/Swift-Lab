@@ -32,6 +32,7 @@ enum MenuSection: String, CaseIterable {
     case textField = "텍스트필드"
     case performanceTest = "성능 테스트"
     case adapter = "커스텀 어댑터"
+    case customDelegate = "커스텀 델리게이트"
 }
 
 let menuData: [MenuSection: [MenuItem]] = [
@@ -68,8 +69,12 @@ let menuData: [MenuSection: [MenuItem]] = [
     
     .adapter: [
         MenuItem(title: "ProductListViewController", viewControllerType: ProductListViewController.self),
-    ]
-        
+    ],
+    
+//    .customDelegate: [
+//        MenuItem(title: "HomeViewController", viewControllerType: HomeViewController.self),
+//    ]
 ]
+
 
 

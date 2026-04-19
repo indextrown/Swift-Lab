@@ -1,13 +1,13 @@
 {
-  "originHash" : "521af293f853f531a296b39378d1610750446453fc126c84882810d9644e176f",
+  "originHash" : "49d398480caac12ef673656444e08b9b271e662af0e6e028d24f992b761dfff3",
   "pins" : [
     {
       "identity" : "autocodable",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/indextrown/AutoCodable.git",
       "state" : {
-        "revision" : "2c043fa0def229a6e7ed9816a0e295fcbcc1739f",
-        "version" : "1.0.1"
+        "revision" : "e8d6696e0549b82cccea0fa61f339a2dcb31a65e",
+        "version" : "1.0.2"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "e227df15448d2ad1a5d4e4c49722a71c68f9058a",
-        "version" : "8.7.0"
+        "revision" : "c152c1915f60c51e4afa0752656993ee5b3c63db",
+        "version" : "8.8.1"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift.git",
       "state" : {
-        "revision" : "5734ad2b6d7d4c0656df3d09ca4ce54fa3c09913",
-        "version" : "6.10.1"
+        "revision" : "132aea4f236ccadc51590b38af0357a331d51fa2",
+        "version" : "6.10.2"
       }
     },
     {

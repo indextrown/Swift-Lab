@@ -19,7 +19,7 @@ final class UIKitTossRowButton: UIControl {
     private let iconView = UIView()
     private let titleLabelView = UILabel()
     private let balanceLabel = UILabel()
-    private let sendButton = UILabel()
+    private let sendButton = UIButton(type: .system)
     
     private let stack = UIStackView()
     private let textStack = UIStackView()
@@ -68,45 +68,51 @@ final class UIKitTossRowButton: UIControl {
         textStack.spacing = 2
         
         titleLabelView.text = account.bank
-        titleLabelView.font = .systemFont(ofSize: 12)
+        titleLabelView.font = .preferredFont(forTextStyle: .caption1)
         
         balanceLabel.text = account.balance
-        balanceLabel.font = .boldSystemFont(ofSize: 16)
+        balanceLabel.font = .preferredFont(forTextStyle: .headline)
         
         textStack.addArrangedSubview(titleLabelView)
         textStack.addArrangedSubview(balanceLabel)
         
         // send button
-        sendButton.text = "송금"
-        sendButton.font = .systemFont(ofSize: 13)
-        sendButton.textAlignment = .center
-        sendButton.backgroundColor = UIColor.systemGray5
-        sendButton.layer.cornerRadius = 10
-        sendButton.clipsToBounds = true
+        var config = UIButton.Configuration.plain()
+
+        config.title = "송금"
+        config.baseForegroundColor = .label
+        config.background.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+
+        config.background.cornerRadius = 10
+
+        config.contentInsets = NSDirectionalEdgeInsets(
+            top: 6,
+            leading: 12,
+            bottom: 6,
+            trailing: 12
+        )
+
+        sendButton.configuration = config
+        sendButton.titleLabel?.font = .systemFont(ofSize: 13)
+
+
         
-        sendButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            sendButton.widthAnchor.constraint(equalToConstant: 50),
-            sendButton.heightAnchor.constraint(equalToConstant: 28)
-        ])
-        
+        // spacer
         let spacer = UIView()
-        spacer.isUserInteractionEnabled = false
+        
         iconView.isUserInteractionEnabled = false
         titleLabelView.isUserInteractionEnabled = false
         balanceLabel.isUserInteractionEnabled = false
         sendButton.isUserInteractionEnabled = false
         textStack.isUserInteractionEnabled = false
         stack.isUserInteractionEnabled = false
-
-        
         
         stack.addArrangedSubview(iconView)
         stack.addArrangedSubview(textStack)
         stack.addArrangedSubview(spacer)
         stack.addArrangedSubview(sendButton)
     }
+
     
 
 
@@ -129,9 +135,10 @@ private extension UIKitTossRowButton {
 
         
         UIView.animate(withDuration: 0.12) {
-            self.backgroundColor = UIColor.systemGray5
+            self.backgroundColor = UIColor.gray.withAlphaComponent(0.15)
             self.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
         }
+
     }
     
     @objc func touchUp() {
@@ -176,7 +183,7 @@ final class AnimationVC: UIViewController {
             
             let row = UIKitTossRowButton(account: account)
             
-            row.heightAnchor.constraint(equalToConstant: 68).isActive = true
+            row.heightAnchor.constraint(equalToConstant: 76).isActive = true
 
             
             row.addTarget(self, action: #selector(tapRow(_:)), for: .primaryActionTriggered)
@@ -193,3 +200,4 @@ final class AnimationVC: UIViewController {
 #Preview {
     AnimationVC()
 }
+

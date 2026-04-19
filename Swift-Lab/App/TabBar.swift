@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     
-    @State private var selectedTab: Int = 0
+    @State private var selectedTab: Int = 4
     var body: some View {
         TabView(selection: $selectedTab) {
             SwiftUIListView()
@@ -24,6 +24,24 @@ struct TabBar: View {
                     Label("UIKit", systemImage: "2.square.fill")
                 }
                 .tag(2)
+            
+            RxListView()
+                .tabItem {
+                    Label("RxSwift", systemImage: "3.square.fill")
+                }
+                .tag(3)
+            
+            ReactorKitListView()
+                .tabItem {
+                    Label("ReactorKit", systemImage: "4.square.fill")
+                }
+                .tag(4)
+            
+            StudyListView()
+                .tabItem {
+                    Label("Study", systemImage: "4.square.fill")
+                }
+                .tag(5)
         }
     }
 }
