@@ -1,22 +1,19 @@
 //
-//  CounterVC.swift
+//  CombineCounterV2VC.swift
 //  Swift-Lab
 //
-//  Created by 김동현 on 4/13/26.
+//  Created by 김동현 on 4/19/26.
 //
 
 import UIKit
-import ReactorKit
+import Combine
 
-//import UIKit
-//import RxSwift
-//import RxCocoa
-//import ReactorKit
 
-final class CounterVC: UIViewController, ReactorKit.View {
-    typealias Reactor = CounterViewReactor
+final class CombineCounterV2VC: UIViewController {
+    typealias Reactor = CombineCounterV2ViewReactor
     
-    var disposeBag = DisposeBag()
+    private let reactor: Reactor
+    private var cancellables = Set<AnyCancellable>()
     
     private let countLabel: UILabel = {
         let label = UILabel()
@@ -48,9 +45,9 @@ final class CounterVC: UIViewController, ReactorKit.View {
         return indicator
     }()
     
-    init(reactor: CounterViewReactor) {
-        super.init(nibName: nil, bundle: nil)
+    init(reactor: Reactor) {
         self.reactor = reactor
+        super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)
@@ -61,8 +58,9 @@ final class CounterVC: UIViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Counter"
+        title = "Combine Counter V2"
         setupUI()
+        bind()
     }
     
     private func setupUI() {
@@ -70,6 +68,9 @@ final class CounterVC: UIViewController, ReactorKit.View {
         view.addSubview(increaseButton)
         view.addSubview(decreaseButton)
         view.addSubview(loadingIndicator)
+        
+        increaseButton.addTarget(self, action: #selector(didTapIncrease), for: .touchUpInside)
+        decreaseButton.addTarget(self, action: #selector(didTapDecrease), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             countLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -86,81 +87,86 @@ final class CounterVC: UIViewController, ReactorKit.View {
         ])
     }
     
-    func bind(reactor: CounterViewReactor) {
-        increaseButton.rx.tap
-            .map { CounterViewReactor.Action.increase }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        decreaseButton.rx.tap
-            .map { CounterViewReactor.Action.decrease }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map { String($0.value) }
-            .distinctUntilChanged()
-            .bind(to: countLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map { $0.isLoading }
-            .distinctUntilChanged()
-            .bind(onNext: { [weak self] isLoading in
-                isLoading
-                ? self?.loadingIndicator.startAnimating()
-                : self?.loadingIndicator.stopAnimating()
-            })
-            .disposed(by: disposeBag)
+    private func bind() {
+        reactor.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                self?.countLabel.text = String(state.value)
+                if state.isLoading {
+                    self?.loadingIndicator.startAnimating()
+                } else {
+                    self?.loadingIndicator.stopAnimating()
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    @objc private func didTapIncrease() {
+        reactor.send(.increase)
+    }
+    
+    @objc private func didTapDecrease() {
+        reactor.send(.decrease)
     }
 }
 
-
-import ReactorKit
-
-final class CounterViewReactor: ReactorKit.Reactor {
-    let initialState = State()
-    
+final class CombineCounterV2ViewReactor: ReactorV2 {
     enum Action {
         case increase
         case decrease
     }
     
-    // 처리 단위
     enum Mutation {
         case increaseValue
         case decreaseValue
         case setLoading(Bool)
     }
     
-    // 현재 상태를 기록
     struct State {
         var value: Int = 0
         var isLoading: Bool = false
     }
     
-    // action이 들어온 경우 어떤 처리를 할 지 분기
-    func mutate(action: Action) -> Observable<Mutation> {
+    @Pulse private(set) var state = State()
+    
+    func send(_ action: Action) {
+        self.action.send(action)
+    }
+    
+    override func mutate(action: Any) -> Effect<Any> {
+        guard let action = action as? Action else {
+            return .empty()
+        }
+        
         switch action {
         case .increase:
             return .concat([
-                .just(.setLoading(true)),
-                .just(.increaseValue)
-                .delay(.seconds(1), scheduler: MainScheduler.instance),
-                .just(.setLoading(false))
+                .just(Mutation.setLoading(true)),
+                .from(
+                    Just(Mutation.increaseValue)
+                        .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+                        .map { $0 as Any }
+                ),
+                .just(Mutation.setLoading(false))
             ])
         case .decrease:
             return .concat([
-                .just(.setLoading(true)),
-                .just(.decreaseValue)
-                .delay(.seconds(1), scheduler: MainScheduler.instance),
-                .just(.setLoading(false))
+                .just(Mutation.setLoading(true)),
+                .from(
+                    Just(Mutation.decreaseValue)
+                        .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+                        .map { $0 as Any }
+                ),
+                .just(Mutation.setLoading(false))
             ])
         }
     }
     
-    // 이전 상태와 처리 단위를 받아서 다음 상태를 반환하는 함수
-    func reduce(state: State, mutation: Mutation) -> State {
+    override func reduce(mutation: Any) {
+        guard let mutation = mutation as? Mutation else {
+            return
+        }
+        
         var newState = state
         
         switch mutation {
@@ -171,6 +177,7 @@ final class CounterViewReactor: ReactorKit.Reactor {
         case .setLoading(let isLoading):
             newState.isLoading = isLoading
         }
-        return newState
+        
+        state = newState
     }
 }

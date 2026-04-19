@@ -17,6 +17,16 @@ struct ReactorKitListView: View {
                             CounterVC(reactor: CounterViewReactor())
                         }
                     }
+                    NavigationLink("Combine CounterVC") {
+                        CombineCounterVC.toSwiftUI {
+                            CombineCounterVC(reactor: CombineCounterViewReactor())
+                        }
+                    }
+                    NavigationLink("Combine CounterVC V2") {
+                        CombineCounterV2VC.toSwiftUI {
+                            CombineCounterV2VC(reactor: CombineCounterV2ViewReactor())
+                        }
+                    }
                 }
             }
         }
@@ -26,4 +36,3 @@ struct ReactorKitListView: View {
 #Preview {
     RxListView()
 }
-
