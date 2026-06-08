@@ -11,10 +11,32 @@ struct StudyListView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("UIKit") {
-                    NavigationLink("UICollectionView 기본") {
+                Section("UICollectionView") {
+                    NavigationLink("Basic") {
                         CollectionBasicVC.toSwiftUI()
                     }
+                    NavigationLink("Pagination") {
+                        PaginationVC.toSwiftUI()
+                    }
+                    NavigationLink("Prefetching") {
+                        PrefetchingVC.toSwiftUI()
+                    }
+                    NavigationLink("Pull to Refresh") {
+                        PullToRefreshVC.toSwiftUI()
+                    }
+                    NavigationLink("CompositionalLayout") {
+                        CompositionalLayoutBasicVC.toSwiftUI(isNavigationBarHidden: true)
+                    }
+                }
+                
+                Section("Adapter") {
+                    NavigationLink("Basic") {
+                        // BasicAdapterVC.toSwiftUI(isNavigationBarHidden: true)
+                    }
+                    
+//                    NavigationLink("Light") {
+//                        LightVC.toSwiftUI(isNavigationBarHidden: true)
+//                    }
                 }
             }
         }
@@ -24,4 +46,3 @@ struct StudyListView: View {
 #Preview {
     RxListView()
 }
-

@@ -23,22 +23,31 @@ extension UIViewController {
     struct VCWrapper: UIViewControllerRepresentable {
         let vcType: UIViewController.Type
         let withNavigation: Bool
+        let isNavigationBarHidden: Bool
         
         func makeUIViewController(context: Context) -> UIViewController {
             let rootVC = vcType.init()
-            
-            return withNavigation
-                ? UINavigationController(rootViewController: rootVC)
-                : rootVC
+            guard withNavigation else { return rootVC }
+
+            let navigationController = UINavigationController(rootViewController: rootVC)
+            navigationController.setNavigationBarHidden(isNavigationBarHidden, animated: false)
+            return navigationController
         }
         
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+            guard let navigationController = uiViewController as? UINavigationController else { return }
+            navigationController.setNavigationBarHidden(isNavigationBarHidden, animated: false)
+        }
     }
     
-    static func toSwiftUI(withNavigation: Bool = true) -> some View {
+    static func toSwiftUI(
+        withNavigation: Bool = true,
+        isNavigationBarHidden: Bool = false
+    ) -> some View {
         return VCWrapper(
             vcType: Self.self,
-            withNavigation: withNavigation
+            withNavigation: withNavigation,
+            isNavigationBarHidden: isNavigationBarHidden
         )
     }
 }
@@ -48,28 +57,34 @@ extension UIViewController {
     struct ReactorVCWrapper: UIViewControllerRepresentable {
         let makeViewController: () -> UIViewController
         let withNavigation: Bool
+        let isNavigationBarHidden: Bool
         
         func makeUIViewController(context: Context) -> UIViewController {
             let rootVC = makeViewController()
-            
-            return withNavigation
-                ? UINavigationController(rootViewController: rootVC)
-                : rootVC
+            guard withNavigation else { return rootVC }
+
+            let navigationController = UINavigationController(rootViewController: rootVC)
+            navigationController.setNavigationBarHidden(isNavigationBarHidden, animated: false)
+            return navigationController
         }
         
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+            guard let navigationController = uiViewController as? UINavigationController else { return }
+            navigationController.setNavigationBarHidden(isNavigationBarHidden, animated: false)
+        }
     }
     
     static func toSwiftUI(
         withNavigation: Bool = true,
+        isNavigationBarHidden: Bool = false,
         makeViewController: @escaping () -> UIViewController
     ) -> some View {
         ReactorVCWrapper(
             makeViewController: makeViewController,
-            withNavigation: withNavigation
+            withNavigation: withNavigation,
+            isNavigationBarHidden: isNavigationBarHidden
         )
     }
 }
-
 
 

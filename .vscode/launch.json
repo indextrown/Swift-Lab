@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Swift-Lab}/Playground/BEPlayground",
+            "name": "Debug BEPlayground (Playground/BEPlayground)",
+            "target": "BEPlayground",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug BEPlayground (Playground/BEPlayground)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Swift-Lab}/Playground/BEPlayground",
+            "name": "Release BEPlayground (Playground/BEPlayground)",
+            "target": "BEPlayground",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release BEPlayground (Playground/BEPlayground)"
+        }
+    ]
+}

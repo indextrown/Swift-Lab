@@ -20,9 +20,20 @@ struct SwiftUIListView: View {
                         AnimationView()
                     }
                     
-                    
                     NavigationLink("토스 UIKit") {
                         AnimationVC.toSwiftUI()
+                    }
+                }
+                
+                Section("Diff") {
+                    NavigationLink("SampleDiff1") {
+                        SampleDiffView()
+                    }
+                }
+                
+                Section("Concurrency") {
+                    NavigationLink("@MainActor Thread Test") {
+                        MainActorExperimentView()
                     }
                 }
             }

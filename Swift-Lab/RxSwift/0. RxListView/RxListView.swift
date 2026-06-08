@@ -29,6 +29,20 @@ struct RxListView: View {
                         RxInoutUserVC.toSwiftUI()
                     }
                 }
+                
+                Section("DelegateProxy") {
+                    NavigationLink("기본 TextField") {
+                        TextFieldDelegateVC.toSwiftUI()
+                    }
+                    
+                    NavigationLink("TextField Proxy") {
+                        TextfieldDelegateProxy.toSwiftUI()
+                    }
+                    
+                    NavigationLink("UIPageViewController Proxy") {
+                        PageDemoVC.toSwiftUI()
+                    }
+                }
             }
         }
     }
